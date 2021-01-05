@@ -1,15 +1,16 @@
 'use strict';
 {
-  // 初期HTML記述をセーブ
-  let defaultSaveHTML = document.body.innerHTML;
+  // 初期の【出力】を記憶
+  let defaultHTML = result.innerHTML;
+  // // 初期のHTML記述を記憶
+  // let defaultHTML = document.body.innerHTML;
   
   // FizzBuzz処理
   document.querySelector('form').addEventListener('submit' , e => {
     e.preventDefault();
-    // document.body.innerHTML = defaultSaveHTML; // HTML記述の初期化
 
-    const FIZZ = parseInt(document.getElementById('FizzNum').value, 10); // 文字列から10進数に変換
-    const BUZZ = parseInt(document.getElementById('BuzzNum').value, 10); // 文字列から10進数に変換
+    const FIZZ = parseFloat(document.getElementById('FizzNum').value, 10); // 文字列から10進数に変換
+    const BUZZ = parseFloat(document.getElementById('BuzzNum').value, 10); // 文字列から10進数に変換
 
     let SumFizzNum = FIZZ;
     let SumBuzzNum = BUZZ;
@@ -51,6 +52,11 @@
       let text = document.createTextNode('整数値を入力してください'); // テキストノードを作成
       frag.appendChild(text); // 要素ノードpをFragmentに追加
     }
+    // 【出力】を初期状態に戻す
+    result.innerHTML = defaultHTML;
+    // // HTML記述を初期状態に戻す
+    // document.body.innerHTML = defaultHTML;
+    
     // Fragmentをまとめて文書ツリーに追加
     result.appendChild(frag);
   });
