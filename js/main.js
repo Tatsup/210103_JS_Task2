@@ -13,19 +13,17 @@
     
     // 【出力】を初期状態に戻す
     RESULT.innerHTML = DEFAULT_HTML;
-    // // HTML記述を初期状態に戻す
-    // document.body.innerHTML = DEFAULT_HTML;
     
     let frag = document.createDocumentFragment(); // 文書の断片(組み立てたノードを保管するtemp容器)を作成
 
     const FIZZ = parseFloat(document.getElementById('FizzNum').value, 10); // 文字列から10進数に変換
     const BUZZ = parseFloat(document.getElementById('BuzzNum').value, 10); // 文字列から10進数に変換
 
+    // ▼▼▼以下はコードレビュー受けて修正後にコメントアウト(21/1/6)▼▼▼
     // let sumFizzNum = FIZZ;
     // let sumBuzzNum = BUZZ;
     // // console.log(typeof(sumFizzNum)); // ForDebug データ型確認
     // // console.log(Number.isInteger(sumFizzNum)); // ForDebug 整数判定
-
     // if (Number.isInteger(sumFizzNum) && Number.isInteger(sumBuzzNum)
     //   && (sumFizzNum != 0) && (sumBuzzNum != 0))
     // {
@@ -58,10 +56,11 @@
     //   let text = document.createTextNode('整数値を入力してください'); // テキストノードを作成
     //   frag.appendChild(text); // 要素ノードpをFragmentに追加
     // }
+    // ▲▲▲以下はコードレビュー受けて修正後にコメントアウト(21/1/6)▲▲▲
     
     if (Number.isInteger(FIZZ) && Number.isInteger(BUZZ)
     && (FIZZ != 0) && (BUZZ != 0)) {
-      for (let i=1; i<=99; i++){
+      for (let i=1; i<=5; i++){
         if ( (i % FIZZ === 0) && (i % BUZZ === 0) ) {
           let text = document.createTextNode(`FizzBuzz ${i}`); // テキストノードを作成
           const P = document.createElement('p'); // 要素ノードpを作成
@@ -83,6 +82,9 @@
       let text = document.createTextNode('整数値を入力してください'); // テキストノードを作成
       frag.appendChild(text); // 要素ノードpをFragmentに追加
     }
+
+    // // HTML記述を初期状態に戻す
+    // document.body.innerHTML = DEFAULT_HTML;
 
     // Fragmentをまとめて文書ツリーに追加
     RESULT.appendChild(frag);
