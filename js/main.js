@@ -2,17 +2,17 @@
 {
   const RESULT = document.getElementById('result'); // 出力結果の表示位置取得
 
-  // 初期の【出力】を記憶
-  const DEFAULT_HTML = RESULT.innerHTML;
-  // // 初期のHTML記述を記憶
-  // const DEFAULT_HTML = document.body.innerHTML;
+  // // 初期の【出力】を記憶
+  // const DEFAULT_HTML = RESULT.innerHTML;
+  // 初期のHTML記述を記憶
+  const DEFAULT_HTML = document.body.innerHTML;
   
   // FizzBuzz処理
   document.querySelector('form').addEventListener('submit' , e => {
     e.preventDefault();
     
-    // 【出力】を初期状態に戻す
-    RESULT.innerHTML = DEFAULT_HTML;
+    // // 【出力】を初期状態に戻す
+    // RESULT.innerHTML = DEFAULT_HTML;
     
     let frag = document.createDocumentFragment(); // 文書の断片(組み立てたノードを保管するtemp容器)を作成
 
@@ -60,7 +60,7 @@
     
     if (Number.isInteger(FIZZ) && Number.isInteger(BUZZ)
     && (FIZZ != 0) && (BUZZ != 0)) {
-      for (let i=1; i<=5; i++){
+      for (let i=1; i<=99; i++){
         if ( (i % FIZZ === 0) && (i % BUZZ === 0) ) {
           let text = document.createTextNode(`FizzBuzz ${i}`); // テキストノードを作成
           const P = document.createElement('p'); // 要素ノードpを作成
@@ -83,8 +83,8 @@
       frag.appendChild(text); // 要素ノードpをFragmentに追加
     }
 
-    // // HTML記述を初期状態に戻す
-    // document.body.innerHTML = DEFAULT_HTML;
+    // HTML記述を初期状態に戻す
+    document.body.innerHTML = DEFAULT_HTML;
 
     // Fragmentをまとめて文書ツリーに追加
     RESULT.appendChild(frag);
